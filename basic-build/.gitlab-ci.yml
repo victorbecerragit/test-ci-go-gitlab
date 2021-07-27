@@ -1,0 +1,14 @@
+build:
+  stage: build
+  script:
+    - go build -o $variable
+  artifacts:
+    paths:
+      - $variable*
+
+test:
+  stage: test
+  dependencies:
+    - build
+  script:
+    - go test -v
